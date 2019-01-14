@@ -1,0 +1,35 @@
+//
+// Font-size
+// Rem output with px fallback
+// ============================================================================
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+//
+// Breakpoints
+// ============================================================================
+@mixin bp($p) {
+    @if $p == sm {
+        @media (min-width: 36em) {
+            @content ;
+        }
+    }
+    @else if $p == md {
+        @media (min-width: 48em) {
+            @content ;
+        }
+    }
+    @else if $p == lg {
+        @media (min-width: 62em) {
+            @content ;
+        }
+    }
+    @else if $p == xl {
+        @media (min-width: 87.5em) {
+            @content ;
+        }
+    }
+}
+

@@ -1,0 +1,426 @@
+# Copyright (C) 2017 activis
+# This file is distributed under the same license as the activis package.
+msgid ""
+msgstr ""
+"Project-Id-Version: activis\n"
+"Report-Msgid-Bugs-To: soutien@activis.ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Production Team <production@activis.ca>\n"
+"Language-Team: Activis <production@activis.ca\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:40, comments.php:61
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43, comments.php:64
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44
+msgid "Newera Comments"
+msgstr ""
+
+#: comments.php:65
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:78
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:28
+msgid "Activis, your web agency"
+msgstr ""
+
+#: header.php:27
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:68, includes/functions.php:149, includes/functions.php:149, page-advanced-search.php:41, page-advanced-search.php:42
+msgid "Search"
+msgstr ""
+
+#: includes/admin.php:105
+msgid "<span id=\"footer-thankyou\"><a href=\"http://activis.ca\" target=\"_blank\">Activis, votre agence web</a></span>."
+msgstr ""
+
+#: includes/filters.php:91
+msgid "Continue to read"
+msgstr ""
+
+#: includes/functions.php:193
+msgid "Share"
+msgstr ""
+
+#: includes/functions.php:214
+msgid "Facebook"
+msgstr ""
+
+#: includes/functions.php:220
+msgid "Twitter"
+msgstr ""
+
+#: includes/functions.php:226
+msgid "Google+"
+msgstr ""
+
+#: includes/functions.php:232
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/functions.php:238
+msgid "Pinterest"
+msgstr ""
+
+#: includes/functions.php:243
+msgid "Check out what I just spotted: %s"
+msgstr ""
+
+#: includes/functions.php:244
+msgid "Email"
+msgstr ""
+
+#: includes/functions.php:249
+msgid "Print"
+msgstr ""
+
+#: includes/functions.php:321
+msgid "Accueil"
+msgstr ""
+
+#: includes/functions.php:341
+msgid "Category archives"
+msgstr ""
+
+#: includes/functions.php:407
+msgid "Search results for"
+msgstr ""
+
+#: includes/functions.php:411
+msgid "Posts with the tag"
+msgstr ""
+
+#: includes/functions.php:417
+msgid "Posts posted by"
+msgstr ""
+
+#: includes/functions.php:421
+msgid "Error 404"
+msgstr ""
+
+#: includes/functions.php:424
+msgid "Blog"
+msgstr ""
+
+#: includes/functions.php:430
+msgid "Page"
+msgstr ""
+
+#: includes/init.php:50
+msgid "Primary Navigation"
+msgstr ""
+
+#: includes/init.php:51
+msgid "Secondary Navigation"
+msgstr ""
+
+#: includes/init.php:52
+msgid "Footer"
+msgstr ""
+
+#: includes/init.php:120
+msgid "Loading"
+msgstr ""
+
+#: includes/template-tags.php:32, includes/widgets.php:21
+msgid ""
+msgstr ""
+
+#: includes/template-tags.php:61
+msgctxt "%s = hrtd"
+msgid "%s ago"
+msgstr ""
+
+#: includes/template-tags.php:64
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: includes/template-tags.php:73
+msgctxt "post author"
+msgid "By %s,"
+msgstr ""
+
+#: includes/template-tags.php:91, includes/template-tags.php:97
+msgid ", "
+msgstr ""
+
+#: includes/template-tags.php:93
+msgid "Posted in %1$s"
+msgstr ""
+
+#: includes/template-tags.php:99
+msgid "Tagged %1$s"
+msgstr ""
+
+#: includes/template-tags.php:106
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: includes/template-tags.php:113
+msgid "Edit %s"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:171
+msgid "Install Required Plugins"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:172
+msgid "Install Plugins"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:174
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:176
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:177
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:178
+msgid "/*translators:1:pluginnames.*/This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:184
+msgid "/*translators:1:pluginnames.*/This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:190
+msgid "/*translators:1:pluginnames.*/The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:196
+msgid "/*translators:1:pluginnames.*/There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:202
+msgid "/*translators:1:pluginnames.*/The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:208
+msgid "/*translators:1:pluginnames.*/The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:214
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:219
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:224
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/tgmpa.php:229
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:230
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:231
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:233
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:235
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:237
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:238
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:239
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: includes/tgmpa/tgmpa.php:240
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: includes/widgets.php:19
+msgid "Sidebar"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:21, includes/widgets/popular-posts.php:175
+msgid "Popular Posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:22
+msgid "A widget that displays popular posts."
+msgstr ""
+
+#: includes/widgets/popular-posts.php:136
+msgid "No posts found."
+msgstr ""
+
+#: includes/widgets/popular-posts.php:202, includes/widgets/popular-posts.php:244
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:212
+msgid "Show thumbnail"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:227
+msgid "Number of posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:232
+msgid "Sticky posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:234
+msgid "Show All Posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:235
+msgid "Hide Sticky Posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:236
+msgid "Show Only Sticky Posts"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:241
+msgid "Order by"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:243
+msgid "Published Date"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:245
+msgid "Number of Likes"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:246
+msgid "Number of Comments"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:248
+msgid "Menu Order"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:254
+msgid "Show Number of Likes"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:258
+msgid "Order"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:260
+msgid "Descending"
+msgstr ""
+
+#: includes/widgets/popular-posts.php:261
+msgid "Ascending"
+msgstr ""
+
+#: page-advanced-search.php:44
+msgid ".$search_query->found_posts. results(s) %s"
+msgstr ""
+
+#: page-advanced-search.php:65
+msgid "No results found..."
+msgstr ""
+
+#: search.php:21
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/blog/loop-infinite-scroll.php:33
+msgid "Load more"
+msgstr ""
+
+#: template-parts/content/content-none.php:15
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content/content-none.php:22
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:26
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:31
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content/content-page.php:19, template-parts/content/content.php:104
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content/content.php:99
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""

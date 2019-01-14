@@ -1,0 +1,43 @@
+/*!
+Theme Name: Activis WordPress Boilerplate
+Theme URI: http://activis.ca
+Author: Activis, votre agence web
+Author URI: http://activis.ca
+Description:
+Version: 2.0.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: activis
+*/
+
+/* ============================================================================
+TABLE OF CONTENTS
+===============================================================================
+
+TBD
+
+*/
+
+// ==============================================================================
+// IMPORT
+//==============================================================================
+
+// Helpers
+@import 'helpers/variables';
+@import 'helpers/mixins';
+
+// Base
+@import 'base/normalize';
+@import 'base/type';
+
+// Layout
+@import 'layout/app';
+
+// Components
+@import 'components/all';
+
+// Plugins
+@import 'plugins/elementor';
+
+// Shame
+@import 'shame';

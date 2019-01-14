@@ -1,0 +1,29 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "WordPress theme by Activis",
+  "author": "Activis <info@activis.ca>",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sort": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8",
+    "gulp-util": "^3.0.8",
+    "gulp-wp-pot": "^2.0.6",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1"
+  },
+  "dependencies": {}
+}

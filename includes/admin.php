@@ -305,6 +305,9 @@ if ( ! function_exists( 'activis_init_role' ) ) :
 			// Subscriber
 			'read' => true,
 
+			// DuplicatePost
+            'copy_posts' => true,
+
 			// WooCommerce
 			'manage_woocommerce' => true,
 			'view_woocommerce_reports' => true,

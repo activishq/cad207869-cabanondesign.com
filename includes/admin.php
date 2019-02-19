@@ -303,7 +303,79 @@ if ( ! function_exists( 'activis_init_role' ) ) :
 			'delete_posts' => true,
 
 			// Subscriber
-			'read' => true
+			'read' => true,
+
+			// WooCommerce
+			'manage_woocommerce' => true,
+			'view_woocommerce_reports' => true,
+			'edit_product' => true,
+			'read_product' => true,
+			'delete_product' => true,
+			'edit_products' => true,
+			'edit_others_products' => true,
+			'publish_products' => true,
+			'read_private_products' => true,
+			'delete_products' => true,
+			'delete_private_products' => true,
+			'delete_published_products' => true,
+			'delete_others_products' => true,
+			'edit_private_products' => true,
+			'edit_published_products' => true,
+			'manage_product_terms' => true,
+			'edit_product_terms' => true,
+			'delete_product_terms' => true,
+			'assign_product_terms' => true,
+			'edit_shop_order' => true,
+			'read_shop_order' => true,
+			'delete_shop_order' => true,
+			'edit_shop_orders' => true,
+			'edit_others_shop_orders' => true,
+			'publish_shop_orders' => true,
+			'read_private_shop_orders' => true,
+			'delete_shop_orders' => true,
+			'delete_private_shop_orders' => true,
+			'delete_published_shop_orders' => true,
+			'delete_others_shop_orders' => true,
+			'edit_private_shop_orders' => true,
+			'edit_published_shop_orders' => true,
+			'manage_shop_order_terms' => true,
+			'edit_shop_order_terms' => true,
+			'delete_shop_order_terms' => true,
+			'assign_shop_order_terms' => true,
+			'edit_shop_coupon' => true,
+			'read_shop_coupon' => true,
+			'delete_shop_coupon' => true,
+			'edit_shop_coupons' => true,
+			'edit_others_shop_coupons' => true,
+			'publish_shop_coupons' => true,
+			'read_private_shop_coupons' => true,
+			'delete_shop_coupons' => true,
+			'delete_private_shop_coupons' => true,
+			'delete_published_shop_coupons' => true,
+			'delete_others_shop_coupons' => true,
+			'edit_private_shop_coupons' => true,
+			'edit_published_shop_coupons' => true,
+			'manage_shop_coupon_terms' => true,
+			'edit_shop_coupon_terms' => true,
+			'delete_shop_coupon_terms' => true,
+			'assign_shop_coupon_terms' => true,
+
+			// WPML
+			// 'wpml_manage_translation_management' => true,
+			// 'wpml_manage_languages' => true,
+			// 'wpml_manage_translation_options' => true,
+			// 'wpml_manage_troubleshooting' => true,
+			// 'wpml_manage_taxonomy_translation' => true,
+			// 'wpml_manage_wp_menus_sync' => true,
+			// 'wpml_manage_translation_analytics' => true,
+			// 'wpml_manage_string_translation' => true,
+			// 'wpml_manage_sticky_links' => true,
+			// 'wpml_manage_navigation' => true,
+			// 'wpml_manage_theme_and_plugin_localization' => true,
+			// 'wpml_manage_media_translation' => true,
+			// 'wpml_manage_support' => true,
+			// 'wpml_manage_woocommerce_multilingual' => true,
+			// 'wpml_operate_woocommerce_multilingual' => true,
 		);
 
 		remove_role( 'subscriber' );
@@ -311,6 +383,8 @@ if ( ! function_exists( 'activis_init_role' ) ) :
 		remove_role( 'author' );
 		remove_role( 'editor' );
 		remove_role( 'client' );
+		remove_role( 'wpseo_editor' );
+		remove_role( 'wpseo_manager' );
 
 		add_role( 'client', 'Client', $capabilities );
 	}

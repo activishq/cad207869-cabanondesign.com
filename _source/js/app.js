@@ -83,6 +83,7 @@
 			app.header();
 			app.navigation();
 			app.infinitescroll();
+			app.dynamicform();
 			app.ui();
 
 		},
@@ -312,6 +313,51 @@
 			$(document).ajaxError(function (e, xhr, opt) {
 				if (xhr.status == 404) jQuery('.navigation a').remove();
 			});  
+
+		},
+
+		dynamicform: function() {
+
+		$(document).on( 'nfFormReady', function( e, layoutView ) {
+
+			var dynamicform_timer = 0
+
+			$('.nf-form-wrap form').on( 'focusout', '.ninja-forms-field', function(){
+
+				var dynamicform_array = {};
+
+				$(this).closest('form').find('.ninja-forms-field').each(function(){
+
+					dynamicform_array[ $(this).attr('name') ] = $(this).val();
+
+				});
+
+				clearTimeout(dynamicform_timer);
+
+				dynamicform_timer = setTimeout(function(){
+
+					$.ajax({
+						type : 'post',
+						dataType : 'json',
+						url: vars[ 'ajax' ],
+						data : {
+							'action' : 'ajaxEventDynamicForm',
+							'nonce' : vars[ 'nonce' ],
+							'dynamicform' : dynamicform_array
+						},
+						beforeSend: function(data){
+					
+						},
+						success: function(response){
+					
+						}
+					});
+
+				}, 2000);
+
+			});
+
+		});
 
 		},
 

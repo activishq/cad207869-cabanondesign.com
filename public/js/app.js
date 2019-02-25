@@ -83,6 +83,7 @@
 			app.header();
 			app.navigation();
 			app.infinitescroll();
+			app.dynamicform();
 			app.ui();
 
 		},
@@ -100,9 +101,9 @@
 
 		header: function() {
 
-			var $sidebar = '',
-				$nav = '.nav',
-			 	$hamburger = '.hamburger';
+			var $sidebar = '';
+			var $nav = '.nav';
+			var $hamburger = '.hamburger';
 			
 			$sidebar = new TimelineMax({
 				paused: true,
@@ -117,7 +118,9 @@
 				.add(TweenMax.staggerTo('.menu-item a', 0.15, { y:'0%', ease: Power4.easeInOut }, 0), '=-0.15');
 			
 			$(document).on('click', $hamburger, function(e) {
-				$sidebar.reversed() ? $sidebar.play().timeScale(1) : $sidebar.reverse();
+				if ( !$body.hasClass( 'nav--is-open' ) ) {
+					$sidebar.reversed() ? $sidebar.play().timeScale(1) : $sidebar.reverse();
+				}
 			} );
 			
 			$(document).on('click', '.app', function(e) {
@@ -310,6 +313,51 @@
 			$(document).ajaxError(function (e, xhr, opt) {
 				if (xhr.status == 404) jQuery('.navigation a').remove();
 			});  
+
+		},
+
+		dynamicform: function() {
+
+		$(document).on( 'nfFormReady', function( e, layoutView ) {
+
+			var dynamicform_timer = 0
+
+			$('.nf-form-wrap form').on( 'focusout', '.ninja-forms-field', function(){
+
+				var dynamicform_array = {};
+
+				$(this).closest('form').find('.ninja-forms-field').each(function(){
+
+					dynamicform_array[ $(this).attr('name') ] = $(this).val();
+
+				});
+
+				clearTimeout(dynamicform_timer);
+
+				dynamicform_timer = setTimeout(function(){
+
+					$.ajax({
+						type : 'post',
+						dataType : 'json',
+						url: vars[ 'ajax' ],
+						data : {
+							'action' : 'ajaxEventDynamicForm',
+							'nonce' : vars[ 'nonce' ],
+							'dynamicform' : dynamicform_array
+						},
+						beforeSend: function(data){
+					
+						},
+						success: function(response){
+					
+						}
+					});
+
+				}, 2000);
+
+			});
+
+		});
 
 		},
 

@@ -62,3 +62,74 @@ if ( ! function_exists('activis_excerpt_length') ) :
 	}
 	add_filter( 'excerpt_length', 'activis_excerpt_length', 999 );
 endif;
+
+
+
+
+/**
+ * activis_ninja_forms_render_default_value
+ */
+if( !function_exists('activis_ninja_forms_render_default_value') ) :
+
+	function activis_ninja_forms_render_default_value( $default_value, $field_type, $field_settings ) {
+
+		if( session_status() == PHP_SESSION_NONE ) :
+
+			session_start();
+
+		endif;
+
+		if( substr( $field_settings[ 'key' ], 0, 8 ) === 'dynamic_' && $field_type != 'listselect' ) :
+
+			$default_value = $_SESSION[ 'dynamicform' ][ $field_settings[ 'key' ] ];
+
+		endif;
+
+		return $default_value;
+	}
+
+	add_filter( 'ninja_forms_render_default_value', 'activis_ninja_forms_render_default_value', 10, 3 );
+
+endif;
+
+
+/**
+ * activis_ninja_forms_render_options_listselect
+ */
+if( !function_exists('activis_ninja_forms_render_options_listselect') ) :
+
+	function activis_ninja_forms_render_options_listselect( $field_options, $field_settings ){
+
+		// if current page, take the product there
+
+		// if( session_status() == PHP_SESSION_NONE ) :
+
+		// 	session_start();
+
+		// endif;
+
+		// if( substr( $field_settings[ 'key' ], 0, 8 ) === 'dynamic_' ) :
+
+		// 	foreach($field_options as &$option):
+
+		// 		if( $option['value'] == $_SESSION[ 'dynamicform' ][ 'nf-field-' . $field_settings[ 'id' ] ] ):
+
+		// 			$option['selected'] = true;
+
+		// 		else:
+
+		// 			$option['selected'] = false;
+
+		// 		endif;
+
+		// 	endforeach;
+
+		// endif;
+
+		return $field_options;
+
+	}
+
+	add_filter( 'ninja_forms_render_options_listselect', 'activis_ninja_forms_render_options_listselect', 10, 2 );
+
+endif;

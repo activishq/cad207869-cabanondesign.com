@@ -58,3 +58,66 @@ include_once( ACTIVIS_INCLUDES_PATH . '/custom-css/styles.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/wpallimport.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/wpallexport.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/tgmpa/tgmpa.php' );
+
+// if( session_status() == PHP_SESSION_NONE ) :
+
+// 	session_start();
+
+// endif;
+
+// echo '<pre class="debug">' . print_r( $_SESSION[ 'dynamicform' ], true ) . '</pre>';
+
+// exit();
+
+
+if( !function_exists( 'ajaxEventDynamicForm' ) ) :
+
+	function ajaxEventDynamicForm(){
+
+		if( !check_ajax_referer( get_bloginfo( 'name' ), 'nonce', false ) ) :
+
+			wp_send_json( array( 'success' => false, 'error' => 'nonce error' ) );
+
+		else :
+
+			if( session_status() == PHP_SESSION_NONE ) :
+
+				session_start();
+
+			endif;
+
+			/*----------  Get all variables  ----------*/
+
+			stripslashes_deep( $_POST );
+
+			$_POST[ 'dynamicform' ] = array_filter( $_POST[ 'dynamicform' ], function( $key ){
+
+				return strpos( $key, 'dynamic_' ) === 0;
+
+			}, ARRAY_FILTER_USE_KEY );
+
+			$_SESSION[ 'dynamicform' ] = $_POST[ 'dynamicform' ];
+
+			// echo '<pre class="debug">' . print_r( $_POST[ 'dynamicform' ], true ) . '</pre>';
+
+			/*----------  Debug SQL query  ----------*/
+
+			// echo '<pre class="debug">' . print_r( $post_variable, true ) . '</pre>';
+
+			// exit();
+
+			/*----------  Return JSON data  ----------*/
+
+			wp_send_json( array( 'success' => true, 'output' => $_POST[ 'dynamicform' ] ) );
+
+			exit();
+
+		endif;
+
+	}
+
+	add_action( 'wp_ajax_nopriv_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
+
+	add_action( 'wp_ajax_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
+
+endif;

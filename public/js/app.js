@@ -318,46 +318,46 @@
 
 		dynamicform: function() {
 
-		$(document).on( 'nfFormReady', function( e, layoutView ) {
+			$(document).on( 'nfFormReady', function( e, layoutView ) {
 
-			var dynamicform_timer = 0
+				var dynamicform_timer = 0
 
-			$('.nf-form-wrap form').on( 'focusout', '.ninja-forms-field', function(){
+				$('.nf-form-wrap form').on( 'focusout', '.ninja-forms-field', function(){
 
-				var dynamicform_array = {};
+					var dynamicform_array = {};
 
-				$(this).closest('form').find('.ninja-forms-field').each(function(){
+					$(this).closest('form').find('.ninja-forms-field').each(function(){
 
-					dynamicform_array[ $(this).attr('name') ] = $(this).val();
+						dynamicform_array[ $(this).attr('name') ] = $(this).val();
+
+					});
+
+					clearTimeout(dynamicform_timer);
+
+					dynamicform_timer = setTimeout(function(){
+
+						$.ajax({
+							type : 'post',
+							dataType : 'json',
+							url: vars[ 'ajax' ],
+							data : {
+								'action' : 'ajaxEventDynamicForm',
+								'nonce' : vars[ 'nonce' ],
+								'dynamicform' : dynamicform_array
+							},
+							beforeSend: function(data){
+						
+							},
+							success: function(response){
+						
+							}
+						});
+
+					}, 1000);
 
 				});
 
-				clearTimeout(dynamicform_timer);
-
-				dynamicform_timer = setTimeout(function(){
-
-					$.ajax({
-						type : 'post',
-						dataType : 'json',
-						url: vars[ 'ajax' ],
-						data : {
-							'action' : 'ajaxEventDynamicForm',
-							'nonce' : vars[ 'nonce' ],
-							'dynamicform' : dynamicform_array
-						},
-						beforeSend: function(data){
-					
-						},
-						success: function(response){
-					
-						}
-					});
-
-				}, 2000);
-
 			});
-
-		});
 
 		},
 

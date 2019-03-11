@@ -270,6 +270,7 @@ if ( ! function_exists( 'activis_init_role' ) ) :
 			'remove_users' => true,
 			'edit_dashboard' => true,
 			'customize' => true,
+			'edit_theme_options' => true,
 
 			// Editor
 			'moderate_comments' => true,

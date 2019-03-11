@@ -242,3 +242,88 @@ if ( ! function_exists( 'activis_subpage_navigation' ) ) :
 		<?php endif;
 	}
 endif;
+
+
+/**
+ * is_session_started
+ */
+if( !function_exists( 'is_session_started' ) ) :
+
+	function is_session_started(){
+
+	    if( php_sapi_name() !== 'cli' ) :
+
+	        if( version_compare( phpversion(), '5.4.0', '>=' ) ) :
+
+	            return ( session_status() === PHP_SESSION_ACTIVE ? true : false );
+
+	        else :
+
+	            return ( session_id() === '' ? false : true );
+
+	        endif;
+
+	    endif;
+
+	    return false;
+	}
+
+endif;
+
+
+/**
+ * ajaxEventDynamicForm
+ */
+if( !function_exists( 'ajaxEventDynamicForm' ) ) :
+
+	function ajaxEventDynamicForm(){
+
+		if( !check_ajax_referer( get_bloginfo( 'name' ), 'nonce', false ) ) :
+
+			wp_send_json( array( 'success' => false, 'error' => 'nonce error' ) );
+
+		else :
+
+			if( is_session_started() === false ) :
+
+				session_start();
+
+			endif;
+
+			/*----------  Get all variables  ----------*/
+
+			stripslashes_deep( $_POST );
+
+			$_POST[ 'dynamicform' ] = array_filter( $_POST[ 'dynamicform' ], function( $key ){
+
+				return strpos( $key, 'dynamic_' ) === 0;
+
+			}, ARRAY_FILTER_USE_KEY );
+
+			$_POST['dynamicform']['dynamic_phone'] = str_replace( array( '(', ')', '-', ' ' ), '', $_POST['dynamicform']['dynamic_phone'] );
+
+			$_SESSION[ 'dynamicform' ] = $_POST[ 'dynamicform' ];
+
+			// echo '<pre class="debug">' . print_r( $_POST[ 'dynamicform' ], true ) . '</pre>';
+
+			/*----------  Debug SQL query  ----------*/
+
+			// echo '<pre class="debug">' . print_r( $post_variable, true ) . '</pre>';
+
+			// exit();
+
+			/*----------  Return JSON data  ----------*/
+
+			wp_send_json( array( 'success' => true, 'output' => $_POST[ 'dynamicform' ] ) );
+
+			exit();
+
+		endif;
+
+	}
+
+	add_action( 'wp_ajax_nopriv_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
+
+	add_action( 'wp_ajax_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
+
+endif;

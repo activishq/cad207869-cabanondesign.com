@@ -58,3 +58,14 @@ include_once( ACTIVIS_INCLUDES_PATH . '/custom-css/styles.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/wpallimport.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/wpallexport.php' );
 include_once( ACTIVIS_INCLUDES_PATH . '/tgmpa/tgmpa.php' );
+
+
+if( is_session_started() === false ) :
+
+	session_start();
+
+endif;
+
+// echo '<pre class="debug">' . print_r( $_SESSION[ 'dynamicform' ], true ) . '</pre>';
+
+// exit();

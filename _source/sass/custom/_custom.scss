@@ -1,0 +1,13 @@
+/* Custom style
+========================================================================== */
+
+pre {
+
+	&.debug {
+		padding: 24px;
+		color: #ac4747;
+		border: 1px dashed #ffd2d2;
+		background-color: #fff5f5;
+	}
+
+}

@@ -8,6 +8,9 @@
 *
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /* ACTIVIS_ACF_SAVE_JSON
 ================================================== */

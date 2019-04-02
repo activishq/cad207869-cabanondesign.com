@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../_source/sass/editor.scss"],"names":[],"mappings":"AAAA;;+EAE+E"}
+{"version":3,"sources":["../../_source/sass/editor.scss","../../_source/sass/reset/_variables.scss"],"names":[],"mappings":"AAAA;6EAC6E;AAI7E;EACC,uBCqD8B,EDpD9B;;AAED;EACC,gBAAe;EACf,aAAY;EACZ,uBAAsB;EACtB,mBAAkB,EAClB;;AAED;EACC,kCAAiC;EACjC,eAAc;EACd,sBAAqB,EACrB;;AAED;;;;EAIC,gBCSoB,EDRpB;;AAED;;;;EAIC,qMCCyM;EDAzM,gBCCoB,EDApB;;AAED;EACC,mBAAkB,EAClB"}

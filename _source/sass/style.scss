@@ -1,43 +1,41 @@
 /*!
-Theme Name: Activis WordPress Boilerplate
-Theme URI: http://activis.ca
-Author: Activis, votre agence web
-Author URI: http://activis.ca
-Description:
-Version: 2.0.7
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: activis
+	Theme Name: WordPress + Elementor
+	Theme URI: http://activis.ca
+	Author: Activis, votre agence web
+	Author URI: http://activis.ca
+	Description: Official WordPress Boilerplate for Elementor by Activis
+	Version: 3.1.0
+	License: GNU General Public License v2 or later
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	Text Domain: activis
 */
 
-/* ============================================================================
-TABLE OF CONTENTS
-===============================================================================
-
-TBD
-
-*/
-
-// ==============================================================================
-// IMPORT
-//==============================================================================
+/* Styles
+   ========================================================================== */
 
 // Helpers
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@import "helpers/mixins";
 
-// Base
-@import 'base/normalize';
-@import 'base/type';
+// Variables
+@import "reset/variables";
 
-// Layout
-@import 'layout/app';
+// Base CSS (Based on Normalize)
+@import "reset/reset";
 
-// Components
-@import 'components/all';
+// Comments
+@import "reset/comments";
 
-// Plugins
-@import 'plugins/elementor';
+// Forms/
+@import "reset/forms";
 
-// Shame
-@import 'shame';
+// Table
+@import "reset/table";
+
+// List
+@import "reset/list";
+
+// WordPress
+@import "reset/wordpress";
+
+// Custom Code
+@import "custom/custom";

@@ -8,8 +8,13 @@
 *
 */
 
-/* THEME SETUP
-================================================== */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+/*
+ * Theme Setup
+ */
 if ( ! function_exists( 'activis_setup' ) ) {
 
 	function activis_setup() {
@@ -67,8 +72,7 @@ if ( ! function_exists( 'activis_setup' ) ) {
 		// Define Navigation Locations
 		register_nav_menus( array(
 			'primary-navigation' => esc_html__( 'Primary Navigation', 'activis' ),
-			'primary-navigation-left' => esc_html__( 'Primary Navigation (Left)', 'activis' ),
-			'primary-navigation-right' => esc_html__( 'Primary Navigation (Right)', 'activis' ),
+			'secondary-navigation' => esc_html__( 'Secondary Navigation (Left)', 'activis' ),
 			'mobile-navigation' => esc_html__( 'Mobile Navigation', 'activis' ),
 		));
 
@@ -82,9 +86,9 @@ if ( ! function_exists( 'activis_setup' ) ) {
 	add_action( 'after_setup_theme', 'activis_setup' );
 }
 
-
-/* ENQUEUE CSS
-================================================== */
+/*
+ * Enqueue CSS
+ */
 if ( ! function_exists( 'activis_enqueue_styles' ) ) {
 	function activis_enqueue_styles() {
 
@@ -103,14 +107,18 @@ if ( ! function_exists( 'activis_enqueue_styles' ) ) {
 	add_action( 'wp_enqueue_scripts', 'activis_enqueue_styles' );
 }
 
-
-/* ENQUEUE JS
-================================================== */
+/*
+ * Enqueue JavaScript
+ */
 if ( ! function_exists( 'activis_enqueue_scripts' ) ) {
 	function activis_enqueue_scripts() {
 
 		if ( !is_admin() ) {
-			
+
+			if( empty( session_id() ) ) :
+				session_start();
+			endif;
+
 			$options = activis_options();
 
 			// Register Scripts
@@ -140,9 +148,8 @@ if ( ! function_exists( 'activis_enqueue_scripts' ) ) {
 
 			wp_localize_script( 'activis-app', 'vars', array(
 				'home' 			=> get_stylesheet_directory_uri(),
-				'nonce' 		=> wp_create_nonce( get_bloginfo( 'name' ) ),
-				'ajax' 			=> admin_url( 'admin-ajax.php' ),
-				'loadingText' 	=> __( '', 'activis' )
+				'nonce' 		=> wp_create_nonce( session_id() ),
+				'ajax' 			=> admin_url( 'admin-ajax.php' )
 			) );
 
 		}
@@ -151,8 +158,9 @@ if ( ! function_exists( 'activis_enqueue_scripts' ) ) {
 }
 
 
-/* HEAD CLEANUP
-================================================== */
+/*
+ * Head Cleanup
+ */
 if ( ! function_exists( 'activis_head_cleanup' ) ) :
 	function activis_head_cleanup() {
 		remove_action( 'wp_head', 'wp_generator' );
@@ -175,28 +183,36 @@ if ( ! function_exists( 'activis_head_cleanup' ) ) :
 	add_action('init', 'activis_head_cleanup');
 endif;
 
-// Set the content width in pixels, based on the theme's design and stylesheet.
-function activis_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'activis_content_width', 1140 );
+
+/*
+ * Register Elementor Locations
+ */
+if ( ! function_exists( 'activis_elementor_theme_register_elementor_locations' ) ) {
+	function activis_elementor_theme_register_elementor_locations( $elementor_theme_manager ) {
+		$elementor_theme_manager->register_all_core_location();
+	}
+}
+add_action( 'elementor/theme/register_locations', 'activis_elementor_theme_register_elementor_locations' );
+
+
+/*
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ */
+if ( ! function_exists( 'activis_content_width' ) ) {
+	function activis_content_width() {
+		$GLOBALS['content_width'] = apply_filters( 'activis_content_width', 1140 );
+	}
 }
 add_action( 'after_setup_theme', 'activis_content_width', 0 );
 
-// Remove injected CSS for recent comments widget
-function activis_remove_wp_widget_recent_comments_style() {
-	if ( has_filter('wp_head', 'wp_widget_recent_comments_style') ) {
-		remove_filter('wp_head', 'wp_widget_recent_comments_style' );
-	}
-}
 
-// Remove injected CSS from recent comments widget
-function activis_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
-		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+/*
+ * Remove injected CSS for recent comments widget
+ */
+if ( ! function_exists( 'activis_remove_wp_widget_recent_comments_style' ) ) {
+	function activis_remove_wp_widget_recent_comments_style() {
+		if ( has_filter('wp_head', 'wp_widget_recent_comments_style') ) {
+			remove_filter('wp_head', 'wp_widget_recent_comments_style' );
+		}
 	}
-}
-
-// Remove injected CSS from gallery
-function activis_gallery_style($css) {
-	return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }

@@ -1,10 +1,4 @@
-//@prepros-append vendor/bootstrap.bundle.min.js
 //@prepros-append vendor/easing.js
-//@prepros-append vendor/flexibility.js
-//@prepros-append vendor/hoverintent.js
-//@prepros-append vendor/imageloaded.js
-//@prepros-append vendor/infinitescroll.js
-//@prepros-append vendor/masonry.js
 //@prepros-append vendor/smootscroll.js
 //@prepros-append vendor/timeline.min.js
 //@prepros-append vendor/tweenmax.min.js

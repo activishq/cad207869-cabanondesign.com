@@ -8,6 +8,9 @@
 *
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
 * Get Options
@@ -20,7 +23,7 @@ if ( ! function_exists('activis_options') ) {
 }
 
 /**
- * Is WooCommerce Activated 
+ * Is WooCommerce Activated
  */
 if ( ! function_exists( 'activis_is_woocommerce_activated' ) ) {
 	function activis_is_woocommerce_activated() {
@@ -28,131 +31,13 @@ if ( ! function_exists( 'activis_is_woocommerce_activated' ) ) {
 	}
 }
 
-
-/**
- * Get Taxonomies Terms Menu
- */
-if ( ! function_exists('activis_taxonomies_terms_menu') ) :
-	function activis_taxonomies_terms_menu( $taxonomy = '' ) {
-
-		$terms = get_terms( $taxonomy );
-		$output = '';
-
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
-			$output .= '<ul class="section__menu">';
-			foreach ( $terms as $term ) {
-				$class = ( get_queried_object()->slug == $term->slug ? 'current-cat' : '' );
-				$output .= sprintf( '<li class="'. $class .'"><a href="%1$s">%2$s</a></li>',
-					esc_url( get_term_link( $term->slug, $taxonomy ) ),
-					esc_html( $term->name )
-				);
-			}
-			$output .= '</ul>';
-		endif;
-
-		echo $output;
-
-	}
-endif;
-
-/**
- * Get Taxonomies Terms Links
- */
-if ( ! function_exists('activis_taxonomies_terms_links') ) :
-	function activis_taxonomies_terms_links( $args = '' ) {
-
-		global $post;
-
-		$args = [
-			'before'            => '', 
-			'sep'               => ', ', 
-			'after'             => '',
-			'display_tax_name'  => false,
-			'taxonomy_sep'      => '&raquo;&nbsp;&nbsp;',
-			'multi_tax_sep'     => '',
-			'hierarchical'      => true
-		];
-		
-		$post_type = $post->post_type;
-		$taxonomies = get_object_taxonomies( $post_type, 'objects' );
-
-		$output = [];
-		
-		foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
-			if( $args['hierarchical'] == $taxonomy->hierarchical && has_term( '', $taxonomy_slug ) && 'post_format' != $taxonomy_slug ) {
-				$term_list = get_the_term_list( $post->ID, $taxonomy_slug, $args['before'], $args['sep'], $args['after'] );
-
-				if( true == $args['display_tax_name'] ){
-					$output[] = strtoupper($taxonomy_slug) . $args['taxonomy_sep'] . $term_list;
-				}else{
-					$output[] = $term_list;
-				}
-			}
-		}
-
-		if( $output ) {  
-
-			$count =  count( $output ); 
-			if( 1 === $count ) {
-				return implode( '', $output );
-			} else {
-				$multilist = [];
-				foreach ( $output as $key=>$value ) {
-					if (array_key_exists( $key + 1, $output ) ) {
-						$multilist[] = $value . $args['multi_tax_sep'];
-					} else {
-						$multilist[] = $value;
-					}
-				}
-				return implode( '', $multilist );
-			}
-
-		}
-
-	}
-endif;
-
-
-/**
- * Get Page Description
- * Retrieve the page description from WPMU SmartCrawl or use the excerpt if empty
- */
-if ( ! function_exists( 'activis_the_excerpt') ) :
-	function activis_the_excerpt() {
-		
-		if ( get_field( '_wds_metadesc' ) != '' ) {
-			$output = get_field( '_wds_metadesc' );
-		}
-		elseif ( get_the_excerpt( get_the_ID() ) != '' ) {
-			$output = get_the_excerpt( get_the_ID() );
-		} else {
-			$output = '';
-		}
-		
-		echo $output;
-	}
-endif;
-
-
-/**
- * Get the post type name by post id
- */
-if ( ! function_exists('activis_the_post_type_name') ) :
-	function activis_the_post_type_name( $id ) {
-		$post_type = get_post_type( $id );
-		$cpt_obj = get_post_type_object( $post_type );
-		echo ''.( $post_type == 'post' ? get_the_title( get_option('page_for_posts', true) ) : $cpt_obj->labels->name ).'';
-	}
-endif;
-
-
 /**
  * Check if a post is a custom post type.
  * @param  mixed $post Post object or ID
  * @return boolean
  */
-if ( ! function_exists('is_custom_post_type') ) {
-	function is_custom_post_type( $post = NULL ) {
+if ( ! function_exists('activis_is_custom_post_type') ) {
+	function activis_is_custom_post_type( $post = NULL ) {
 
 		$all_custom_post_types = get_post_types( array ( '_builtin' => FALSE ) );
 
@@ -245,29 +130,86 @@ endif;
 
 
 /**
+ * Google Analytics Code
+ */
+if ( ! function_exists( 'activis_ga_js' ) ) {
+	function activis_ga_js() {
+		$options = activis_options();
+		if ( (isset( $options['analytics_google_analytics_code'] ) ) && trim( $options['analytics_google_analytics_code'] ) != "" ) {
+			echo $options['analytics_google_analytics_code'];
+		}
+	}
+}
+
+
+/**
+ * Google Tag Manager (Head)
+ */
+if ( ! function_exists( 'activis_ga_tag_js_head' ) ) {
+	function activis_ga_tag_js_head() {
+		$options = activis_options();
+        $setting = $options['analytics_google_tag_manager_code_head'];
+		if ( (isset( $options['analytics_google_tag_manager_code_head'] ) ) && trim( $options['analytics_google_tag_manager_code_head'] ) != "" ) {
+			echo $options['analytics_google_tag_manager_code_head'];
+		}
+	}
+}
+
+
+/**
+ * Google Tag Manager (Body)
+ */
+if ( ! function_exists( 'activis_ga_tag_js_body' ) ) {
+	function activis_ga_tag_js_body() {
+		$options = activis_options();
+		if ( (isset( $options['analytics_google_tag_manager_code_body'] ) ) && trim( $options['analytics_google_tag_manager_code_body'] ) != "" ) {
+			echo $options['analytics_google_tag_manager_code_body'];
+		}
+	}
+}
+
+
+/**
+ * JS Header
+ */
+if ( ! function_exists( 'activis_header_js' ) ) {
+	function activis_header_js() {
+		$options = activis_options();
+		if ( (isset( $options['header_js'] ) ) && trim( $options['header_js'] ) != "" ) {
+			echo $options['header_js'];
+		}
+	}
+}
+
+
+/**
+ * JS Footer
+ */
+if ( ! function_exists( 'activis_footer_js' ) ) {
+	function activis_footer_js() {
+		$options = activis_options();
+		if ( (isset( $options['footer_js'] ) ) && trim( $options['footer_js'] ) != "" ) {
+			echo $options['footer_js'];
+		}
+	}
+}
+
+/**
  * is_session_started
  */
 if( !function_exists( 'is_session_started' ) ) :
-
 	function is_session_started(){
 
 	    if( php_sapi_name() !== 'cli' ) :
-
 	        if( version_compare( phpversion(), '5.4.0', '>=' ) ) :
-
 	            return ( session_status() === PHP_SESSION_ACTIVE ? true : false );
-
 	        else :
-
 	            return ( session_id() === '' ? false : true );
-
 	        endif;
-
 	    endif;
 
 	    return false;
 	}
-
 endif;
 
 
@@ -277,53 +219,28 @@ endif;
 if( !function_exists( 'ajaxEventDynamicForm' ) ) :
 
 	function ajaxEventDynamicForm(){
-
 		if( !check_ajax_referer( get_bloginfo( 'name' ), 'nonce', false ) ) :
-
 			wp_send_json( array( 'success' => false, 'error' => 'nonce error' ) );
-
 		else :
 
 			if( is_session_started() === false ) :
-
 				session_start();
-
 			endif;
-
-			/*----------  Get all variables  ----------*/
 
 			stripslashes_deep( $_POST );
 
 			$_POST[ 'dynamicform' ] = array_filter( $_POST[ 'dynamicform' ], function( $key ){
-
 				return strpos( $key, 'dynamic_' ) === 0;
-
 			}, ARRAY_FILTER_USE_KEY );
 
 			$_POST['dynamicform']['dynamic_phone'] = str_replace( array( '(', ')', '-', ' ' ), '', $_POST['dynamicform']['dynamic_phone'] );
-
 			$_SESSION[ 'dynamicform' ] = $_POST[ 'dynamicform' ];
-
-			// echo '<pre class="debug">' . print_r( $_POST[ 'dynamicform' ], true ) . '</pre>';
-
-			/*----------  Debug SQL query  ----------*/
-
-			// echo '<pre class="debug">' . print_r( $post_variable, true ) . '</pre>';
-
-			// exit();
-
-			/*----------  Return JSON data  ----------*/
-
 			wp_send_json( array( 'success' => true, 'output' => $_POST[ 'dynamicform' ] ) );
 
 			exit();
 
 		endif;
-
 	}
-
 	add_action( 'wp_ajax_nopriv_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
-
 	add_action( 'wp_ajax_ajaxEventDynamicForm', 'ajaxEventDynamicForm' );
-
 endif;

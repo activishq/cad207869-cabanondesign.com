@@ -148,7 +148,7 @@ if ( ! function_exists( 'activis_enqueue_scripts' ) ) {
 
 			wp_localize_script( 'activis-app', 'vars', array(
 				'home' 			=> get_stylesheet_directory_uri(),
-				'nonce' 		=> wp_create_nonce( session_id() ),
+				'nonce' 		=> wp_create_nonce( get_bloginfo( 'name' ) ),
 				'ajax' 			=> admin_url( 'admin-ajax.php' )
 			) );
 

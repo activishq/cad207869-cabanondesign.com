@@ -81,10 +81,33 @@ if( !function_exists('activis_ninja_forms_render_options_listselect') ) :
 					endif;
 				endforeach;
 
-			elseif( $field_settings[ 'key' ] == 'dynamic_model_cabanon' || $field_settings[ 'key' ] == 'dynamic_model_garage' ) :
+			elseif( $field_settings[ 'key' ] == 'dynamic_model_cabanon' ) :
+				$wpQuery = new WP_Query( array(
+					'post_type' 		=> array( 'cabanons' ),
+					'post_status' 		=> array( 'publish' ),
+					'posts_per_page' 	=> -1,
+					'order' 			=> 'ASC',
+					'orderby' 			=> 'title'
+				) );
+				
+				if( $wpQuery->have_posts() ) :
+					$field_options = array();
+					$field_options[] = array(
+						'label' => 'Choisir un Modèle',
+						'value' => '',
+						'selected' => true
+					);
+					while( $wpQuery->have_posts() ) : $wpQuery->the_post();
+						$field_options[] = array(
+							'label' => get_the_title(),
+							'value' => get_the_title()
+						);
+					endwhile;
+					wp_reset_postdata();
+				endif;
 
 				foreach($field_options as &$option):
-					if( $option['value'] == $formModel ):
+					if( $option['label'] == $formModel ):
 						$option['selected'] = true;
 					else:
 						$option['selected'] = false;

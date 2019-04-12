@@ -84,7 +84,7 @@ if( !function_exists('activis_ninja_forms_render_options_listselect') ) :
 			elseif( $field_settings[ 'key' ] == 'dynamic_model_cabanon' || $field_settings[ 'key' ] == 'dynamic_model_garage' ) :
 
 				foreach($field_options as &$option):
-					if( $option['value'] == $formModel ):
+					if( $option['label'] == $formModel ):
 						$option['selected'] = true;
 					else:
 						$option['selected'] = false;

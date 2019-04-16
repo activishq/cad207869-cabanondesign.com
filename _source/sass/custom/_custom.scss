@@ -1,6 +1,5 @@
 /* Custom style
 ========================================================================== */
-
 pre {
 
 	&.debug {
@@ -12,7 +11,8 @@ pre {
 
 }
 
-
+/* ACTCOPY shortcode
+========================================================================== */
 .actcopy {
 	display: flex;
 	flex-flow: row wrap;
@@ -50,4 +50,236 @@ pre {
 			}
 		}
 	}
+}
+
+/* Copy from Redux CSS
+========================================================================== */
+input,
+select,
+button,
+textarea
+{
+	margin:0;
+	border:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	
+	/* Browsers have different default form fonts */
+	font-size:14px;
+	font-family:Poppins;
+	
+	padding:10px;
+}
+
+input, select, textarea
+{
+background-color:#f1f1f1;
+}
+
+.nf-form-fields-required {
+    font-family: "Poppins", Sans-serif;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.submit-container input
+{
+background-color:#54595f;
+color:white;
+}
+.submit-container input::hover
+{
+background-color:#f1f1f1;
+color:black;
+}
+
+select
+{
+background-color:#f1f1f1;
+color:#777777;
+height: 40px!important;
+}
+
+.nf-error-msg, .ninja-forms-req-symbol {
+    color: #e80000;
+    font-family: poppins;
+    font-size: 14px;
+}
+
+.nf-form-cont h2{
+	font-size:22px;
+	font-family:poppins;
+}
+
+/** Personnalisation du widget ventes croisées *********************/
+/*.ventes_croisees h2 {
+	font-family:Poppins;
+    font-size: 60px;
+    font-weight: 100;
+    color: #000000;
+}*/
+
+.elementor-widget-wc-elements{
+    color: #54595f;
+    font-family: poppins;
+    font-size: 16px;
+}
+
+.cart-collaterals .cross-sells{
+display:none;
+}
+
+.add_product select{
+background-color: #ededed !important;
+}
+
+.add_product .woocommerce-Price-amount {
+    color: #63c9d5;
+    font-size: 24px;
+    font-weight:900;
+    font-family:Poppins;
+    padding-bottom:30px;
+    display:block;
+    
+}
+.add_product .woocommerce-variation-price u, .add_product .woocommerce-variation-price ins  {
+    text-decoration: none;
+}
+
+
+
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+    padding: 10px 10px 10px 50px;
+    margin: 0;
+    position: relative;
+    background-color: #333;
+    list-style: none outside;
+    width: auto;
+    word-wrap: break-word;
+    border-top: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Poppins;
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    background-color: #63c9d5;
+}
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    border-radius: 0;
+}
+
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+        content: '\e015';
+    color: #ff6f61;
+    padding: 10px 0;
+    top: 0;
+    left: 1.5em;
+}
+
+a.button.wc-forward {
+/*padding:0;*/
+color:#fff;
+background-color:#333;
+}
+
+a.button.wc-forward:hover {
+/*padding:0;*/
+color:#ff6f61;
+background-color:#333;
+}
+a.restore-item {
+    color:#ff6f61;
+}
+a.restore-item:hover {
+    color:#fff;
+}
+
+.elementor-menu-cart__product {
+    display: grid;
+    grid-template-columns: 10% auto 50px;
+    grid-template-rows: 75% auto;
+}
+.elementor-menu-cart__product-remove:after, .elementor-menu-cart__product-remove:before {
+    background: #333;
+}
+.elementor a {
+    color: #63c9d5;
+}
+
+
+
+@media (min-width: 1025px) {
+    .elementor-menu-cart__container .elementor-menu-cart__main { width: 30vw;} 
+    }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .elementor-menu-cart__container .elementor-menu-cart__main { width: 50vw;} 
+      
+  }
+  @media (max-width: 767px) {
+    .elementor-menu-cart__container .elementor-menu-cart__main { width: 90vw;} 
+      
+  }
+
+.elementor-menu-cart__close-button {
+
+    align-self: flex-start;
+
+}
+
+.elementor-menu-cart__close-button:after, .elementor-menu-cart__close-button:before {
+    background: #333333;
+}
+
+.woocommerce-MyAccount-navigation ul {
+list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.woocommerce-MyAccount-content a {
+    color: #63c9d5;
+}
+.woocommerce-MyAccount-content a:hover {
+    color: #333333;
+}
+.woocommerce-MyAccount-navigation a {
+    color: white;
+    padding: 5px 10px;
+    margin-bottom:10px;
+    background-color:#63c9d5;
+    display:block;
+}
+.woocommerce-MyAccount-navigation a:hover {
+    color: #333333;
+    background-color:#efefef;
+}
+
+/************ bouton rdv ******/
+
+@-webkit-keyframes wiggle {
+  0% {-webkit-transform: rotate(5deg) translate(5px, 0);}
+  1% {-webkit-transform: rotate(-5deg) translate(-5px, 5px);}
+  2% {-webkit-transform: rotate(5deg) translate(0, 5px);}
+  3% {-webkit-transform: rotate(-5deg) translate(0, -5px);}
+  4% {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(0deg);}
+}
+
+
+@keyframes wiggle {
+  0% {transform: rotate(5deg) translate(5px, 0);}
+  1% {transform: rotate(-5deg) translate(-5px, 0);}
+  2% {transform: rotate(5deg) translate(0, 5px);}
+  3% {transform: rotate(-5deg) translate(0, -5px);}
+  4% {transform: rotate(0deg);}
+  100% {transform: rotate(0deg);}
 }

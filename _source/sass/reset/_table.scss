@@ -1,0 +1,26 @@
+/* Table
+   ========================================================================== */
+
+table {
+	background-color: transparent;
+	width: 100%;
+	margin-bottom: 15px;
+	border-spacing: 0;
+	border-collapse: collapse;
+
+	@media (max-width: $screen-sm - $screen-diff) {
+		table {
+			font-size: 0.8em;
+
+			th,
+			td {
+				padding: 7px;
+				line-height: 1.3;
+			}
+
+			th {
+				font-weight: 400;
+			}
+		}
+	}
+}

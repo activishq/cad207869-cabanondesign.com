@@ -1,13 +1,15 @@
 <?php
 /**
- * The header for our site.
+ * The template for displaying the header.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package activis
+ * This is the template that displays all of the <head> section, opens the <body> tag and adds the site's header
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
 	<?php do_action( 'activis_head_start' ); ?>
@@ -20,12 +22,7 @@
 
 <?php do_action( 'activis_after_body' ); ?>
 
-<!-- App -->
-<div class="app">
-
-	<?php do_action( 'activis_site_header' ); ?>
-
-	<!-- Site Main -->
-	<main class="site-main" role="main">
-
-        <?php do_action( 'activis_start_site_main' ); ?>
+<?php
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
+	get_template_part( 'template-parts/header' );
+}

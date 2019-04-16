@@ -1,22 +1,9 @@
 <?php
-/**
- * The sidebar containing the main widget area.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package activis
- */
-
-if ( ! is_active_sidebar( 'sidebar' ) ) {
-	return;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
 }
 
-?>
-<section class="section section--is-sidebar">
-
-	<aside id="secondary" class="widget-area">
-		<?php dynamic_sidebar( 'sidebar' ); ?>
-	</aside>
-	
-</section>
-
+/**
+ * This file is here to avoid the Deprecated Message for sidebar by wp-includes/theme-compat/sidebar.php
+ *
+ */

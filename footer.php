@@ -2,27 +2,20 @@
 /**
  * The template for displaying the footer.
  *
- * Contains the closing of the #content div and all content after.
+ * Contains the body & html closing tags.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package activis
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+	get_template_part( 'template-parts/footer' );
+}
 ?>
 
-        <?php do_action( 'activis_end_site_main' ); ?>
+<?php wp_footer(); ?>
 
-	</main>
-	<!-- // Site Main -->
-
-	<?php do_action( 'activis_site_footer' ); ?>
-
-</div>
-<!-- // App -->
-
-<?php
-	wp_footer();
-	do_action( 'activis_after_footer' );
-?>
 </body>
 </html>

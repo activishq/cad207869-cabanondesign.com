@@ -11,3 +11,43 @@ pre {
 	}
 
 }
+
+
+.actcopy {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-end;
+	font-weight: 300;
+	font-size: 10px;
+	color: #FFFFFF !important;
+	font-family: "Poppins", Sans-serif;
+
+	@at-root body[data-elementor-device-mode="mobile"] & {
+		justify-content: center;
+	}
+
+	svg {
+		width: 16px;
+		height: 100%;
+		margin: 0 10px;
+
+		.cls-1, .cls-2 {
+			fill: transparent;
+			stroke: #fff;
+			stroke-miterlimit: 10;
+			stroke-width: 0.75px;
+			stroke-linecap: square;
+			transition: all 1s ease;
+		}
+	}
+
+	&:hover {
+		svg {
+			.cls-1, .cls-2 {
+				fill: #FFFFFF;
+				stroke: #333333;
+			}
+		}
+	}
+}

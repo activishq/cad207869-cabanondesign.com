@@ -413,4 +413,52 @@ pre.debug {
   background-color: #fff5f5;
 }
 
+.actcopy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-weight: 300;
+  font-size: 10px;
+  color: #FFFFFF !important;
+  font-family: "Poppins", Sans-serif;
+}
+
+body[data-elementor-device-mode="mobile"] .actcopy {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.actcopy svg {
+  width: 16px;
+  height: 100%;
+  margin: 0 10px;
+}
+
+.actcopy svg .cls-1, .actcopy svg .cls-2 {
+  fill: transparent;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 0.75px;
+  stroke-linecap: square;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.actcopy:hover svg .cls-1, .actcopy:hover svg .cls-2 {
+  fill: #FFFFFF;
+  stroke: #333333;
+}
+
 /*# sourceMappingURL=style.css.map */
